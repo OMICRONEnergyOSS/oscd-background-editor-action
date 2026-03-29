@@ -1,0 +1,72 @@
+{
+  "schemaVersion": "1.0.0",
+  "readme": "",
+  "modules": [
+    {
+      "kind": "javascript-module",
+      "path": "src/oscd-background-editor-action.ts",
+      "declarations": [
+        {
+          "kind": "function",
+          "name": "newActionEvent",
+          "return": {
+            "type": {
+              "text": "CustomEvent<{ action: EditorAction; initiator: string }>"
+            }
+          },
+          "parameters": [
+            {
+              "name": "action",
+              "type": {
+                "text": "EditorAction"
+              }
+            },
+            {
+              "name": "initiator",
+              "default": "'user'",
+              "type": {
+                "text": "'user' | 'system'"
+              }
+            }
+          ],
+          "description": "Creates and returns an 'editor-action' CustomEvent matching the legacy\nmonorepo dispatch contract.\n\nThe standalone shell does not process 'editor-action' events directly.\nThis package's background plugin element intercepts these events on\n`document`, converts them to EditV2, and re-dispatches as 'oscd-edit-v2'."
+        },
+        {
+          "kind": "class",
+          "description": "",
+          "name": "OscdBackgroundEditorAction",
+          "members": [
+            {
+              "kind": "field",
+              "name": "handleEditorAction",
+              "privacy": "private",
+              "readonly": true
+            }
+          ],
+          "superclass": {
+            "name": "HTMLElement"
+          },
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "newActionEvent",
+          "declaration": {
+            "name": "newActionEvent",
+            "module": "src/oscd-background-editor-action.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "OscdBackgroundEditorAction",
+            "module": "src/oscd-background-editor-action.ts"
+          }
+        }
+      ]
+    }
+  ]
+}
